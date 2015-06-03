@@ -7,6 +7,7 @@ import android.support.annotation.WorkerThread;
  */
 public class AnnotationTest {
     public void callBackgroundMethod() {
+        // No error!!!???
         backgroundMethod();
     }
     @WorkerThread

@@ -2,6 +2,7 @@ package advancedandroid.annotationsamples;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.MainThread;
 import android.support.annotation.WorkerThread;
 
 public class MainActivity extends Activity {
@@ -12,6 +13,18 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         backgroundMethod();
         new AnnotationTest().callBackgroundMethod();
+        mainThreadMethod();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                mainThreadMethod();
+            }
+        }).start();
+    }
+
+    @MainThread
+    private void mainThreadMethod() {
+
     }
 
     @WorkerThread
