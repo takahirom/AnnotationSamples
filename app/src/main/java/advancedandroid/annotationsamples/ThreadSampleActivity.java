@@ -3,9 +3,11 @@ package advancedandroid.annotationsamples;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.MainThread;
+import android.support.annotation.NonNull;
 import android.support.annotation.WorkerThread;
+import android.view.View;
 
-public class MainActivity extends Activity {
+public class ThreadSampleActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,8 @@ public class MainActivity extends Activity {
                 mainThreadMethod();
             }
         }).start();
+        final View view = new View(this);
+        view.setVisibility(View.GONE);
     }
 
     @MainThread
