@@ -2,6 +2,7 @@ package advancedandroid.annotationsamples;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.IntRange;
 import android.support.annotation.Size;
 import android.util.Log;
 
@@ -21,6 +22,10 @@ public class ConstraintsAnnotationSampleActivity extends Activity {
         foo("foo"); // no error
         foo("fooo"); // error
         foo("fooooo"); // no error
+
+        foo(101);
+        foo(100);
+
     }
 
     private void logging(@Size(max=23) String tag, String message) {
@@ -28,6 +33,10 @@ public class ConstraintsAnnotationSampleActivity extends Activity {
     }
 
     private void foo(@Size(multiple=3) String size) {
+        System.out.println(size);
+    }
+
+    private void foo(@IntRange(from=3,to=100) int size) {
         System.out.println(size);
     }
 }
