@@ -22,8 +22,6 @@ public class ThreadSampleActivity extends Activity {
                 mainThreadMethod();
             }
         }).start();
-        final View view = new View(this);
-        view.setVisibility(View.GONE);
     }
 
     @MainThread
